@@ -1,0 +1,2558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AyuraLife Ayurveda Clinic</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+/* =========================================
+   INTERACTIVE ANIMATION SYSTEM
+========================================= */
+
+
+/* =========================================
+   CURSOR GLOW
+========================================= */
+
+.cursor-glow {
+
+    position: fixed;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(120, 180, 100, 0.15),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 9998;
+
+    transition:
+        width 0.3s ease,
+        height 0.3s ease;
+
+}
+
+
+/* =========================================
+   FLOATING LEAVES
+========================================= */
+
+.floating-leaves {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    overflow: hidden;
+
+}
+
+
+.floating-leaf {
+
+    position: absolute;
+
+    font-size: 35px;
+
+    opacity: 0.25;
+
+    filter: blur(0.2px);
+
+    animation:
+        leafFloat
+        8s
+        ease-in-out
+        infinite;
+
+}
+
+
+.leaf-a {
+
+    left: 8%;
+
+    top: 20%;
+
+    animation-delay: 0s;
+
+}
+
+
+.leaf-b {
+
+    left: 85%;
+
+    top: 30%;
+
+    animation-delay: 2s;
+
+}
+
+
+.leaf-c {
+
+    left: 15%;
+
+    top: 75%;
+
+    animation-delay: 4s;
+
+}
+
+
+.leaf-d {
+
+    left: 75%;
+
+    top: 80%;
+
+    animation-delay: 1s;
+
+}
+
+
+@keyframes leafFloat {
+
+    0% {
+
+        transform:
+            translate3d(0,0,0)
+            rotate(0deg);
+
+    }
+
+    25% {
+
+        transform:
+            translate3d(30px,-40px,0)
+            rotate(20deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(-20px,-80px,0)
+            rotate(-15deg);
+
+    }
+
+    75% {
+
+        transform:
+            translate3d(40px,-40px,0)
+            rotate(25deg);
+
+    }
+
+    100% {
+
+        transform:
+            translate3d(0,0,0)
+            rotate(0deg);
+
+    }
+
+}
+
+
+/* =========================================
+   ORGANIC BACKGROUND BLOBS
+========================================= */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(133,190,117,0.18),
+            transparent 70%
+        );
+
+    top: -150px;
+
+    right: -100px;
+
+    animation:
+        blobMove
+        8s
+        ease-in-out
+        infinite;
+
+}
+
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(215,181,109,0.12),
+            transparent 70%
+        );
+
+    bottom: -100px;
+
+    left: 20%;
+
+    animation:
+        blobMove2
+        10s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes blobMove {
+
+    0%,100% {
+
+        transform:
+            translate(0,0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-80px,60px)
+            scale(1.2);
+
+    }
+
+}
+
+
+@keyframes blobMove2 {
+
+    0%,100% {
+
+        transform:
+            translate(0,0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(100px,-50px)
+            scale(1.25);
+
+    }
+
+}
+
+
+/* =========================================
+   3D TREATMENT CARD
+========================================= */
+
+.treatment-card {
+
+    transform-style: preserve-3d;
+
+    perspective: 1000px;
+
+    will-change: transform;
+
+}
+
+
+.treatment-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 18px;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 20%,
+            rgba(255,255,255,0.25),
+            transparent 80%
+        );
+
+    opacity: 0;
+
+    transition: 0.4s;
+
+}
+
+
+.treatment-card:hover::after {
+
+    opacity: 1;
+
+}
+
+
+.treatment-card .treatment-content {
+
+    transform: translateZ(25px);
+
+}
+
+
+/* =========================================
+   IMAGE PARALLAX
+========================================= */
+
+.treatment-image {
+
+    overflow: hidden;
+
+}
+
+
+.treatment-image img {
+
+    transition:
+        transform 0.8s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.treatment-card:hover
+.treatment-image img {
+
+    transform:
+        scale(1.12)
+        translateY(-5px);
+
+}
+
+
+/* =========================================
+   MAGNETIC BUTTON
+========================================= */
+
+.btn {
+
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+}
+
+
+.btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+
+    height: 0;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    transform:
+        translate(-50%,-50%);
+
+    left: var(--x,50%);
+
+    top: var(--y,50%);
+
+    transition:
+        width 0.5s ease,
+        height 0.5s ease;
+
+    z-index: -1;
+
+}
+
+
+.btn:hover::before {
+
+    width: 350px;
+
+    height: 350px;
+
+}
+
+
+/* =========================================
+   SECTION HEADING ANIMATION
+========================================= */
+
+.section-heading h2 {
+
+    overflow: hidden;
+
+}
+
+
+.section-heading h2 {
+
+    transition:
+        transform 0.8s ease;
+
+}
+
+
+.section-heading:hover h2 {
+
+    transform:
+        translateX(8px);
+
+}
+
+
+/* =========================================
+   DOCTOR IMAGE EFFECT
+========================================= */
+
+.doctor-image {
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+}
+
+
+.doctor-image img {
+
+    transition:
+        transform 1s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.doctor-image:hover img {
+
+    transform:
+        scale(1.06)
+        rotate(1deg);
+
+}
+
+
+/* =========================================
+   ABOUT IMAGE EFFECT
+========================================= */
+
+.about-image {
+
+    overflow: visible;
+
+}
+
+
+.about-image img {
+
+    transition:
+        transform 0.8s ease;
+
+}
+
+
+.about-image:hover img {
+
+    transform:
+        scale(1.03)
+        rotate(-1deg);
+
+}
+
+
+/* =========================================
+   TESTIMONIAL HOVER
+========================================= */
+
+.testimonial {
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+
+}
+
+
+.testimonial:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+        0 25px 60px
+        rgba(20,60,40,0.12);
+
+}
+
+
+.testimonial:hover .quote {
+
+    transform:
+        translateY(-5px)
+        rotate(-8deg);
+
+}
+
+
+.quote {
+
+    display: inline-block;
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+/* =========================================
+   FEATURE ICON ANIMATION
+========================================= */
+
+.feature i {
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.feature:hover i {
+
+    transform:
+        scale(1.3)
+        rotate(10deg);
+
+}
+
+
+/* =========================================
+   STATS HOVER
+========================================= */
+
+.stat {
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+.stat:hover {
+
+    transform:
+        translateY(-8px);
+
+}
+
+
+.stat:hover strong {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+.stat strong {
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+/* =========================================
+   NAVIGATION HOVER
+========================================= */
+
+nav a {
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+nav a:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================
+   APPOINTMENT FORM FOCUS
+========================================= */
+
+.form-group {
+
+    position: relative;
+
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    transition:
+        border 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(39,92,59,0.08);
+
+}
+
+
+/* =========================================
+   REVEAL STAGGER
+========================================= */
+
+.treatment-card:nth-child(1) {
+
+    transition-delay: 0.1s;
+
+}
+
+
+.treatment-card:nth-child(2) {
+
+    transition-delay: 0.2s;
+
+}
+
+
+.treatment-card:nth-child(3) {
+
+    transition-delay: 0.3s;
+
+}
+
+
+.testimonial:nth-child(1) {
+
+    transition-delay: 0.1s;
+
+}
+
+
+.testimonial:nth-child(2) {
+
+    transition-delay: 0.2s;
+
+}
+
+
+.testimonial:nth-child(3) {
+
+    transition-delay: 0.3s;
+
+}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #f8f5eb;
+            color: #24382b;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --green: #275c3b;
+            --dark-green: #163c29;
+            --light-green: #dcebd7;
+            --cream: #f8f5eb;
+            --gold: #b48a45;
+            --white: #ffffff;
+        }
+
+        /* =========================
+           LOADER
+        ========================= */
+
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--dark-green);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.7s ease;
+        }
+
+        .loader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-circle {
+            width: 70px;
+            height: 70px;
+            border: 3px solid rgba(255,255,255,0.2);
+            border-top-color: #d7b56d;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: 0.4s ease;
+        }
+
+        header.scrolled {
+            background: rgba(22,60,41,0.96);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            max-width: 1250px;
+            margin: auto;
+            padding: 22px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d7b56d;
+            font-size: 21px;
+        }
+
+        .logo-text {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .logo-text span {
+            color: #d7b56d;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d7b56d;
+            transition: 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-btn {
+            padding: 12px 20px;
+            border-radius: 30px;
+            background: #d7b56d;
+            color: #173a28 !important;
+            font-weight: 600;
+        }
+
+        .nav-btn::after {
+            display: none;
+        }
+
+        .menu-btn {
+            display: none;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(16,55,36,0.95),
+                    rgba(16,55,36,0.72),
+                    rgba(16,55,36,0.15)
+                ),
+                url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1250px;
+            width: 100%;
+            margin: auto;
+            padding: 130px 25px 80px;
+            color: white;
+        }
+
+        .hero-small {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #e1c27d;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 22px;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(55px, 7vw, 100px);
+            line-height: 0.9;
+            max-width: 750px;
+            margin-bottom: 30px;
+            animation: fadeUp 1s 0.15s both;
+        }
+
+        .hero h1 span {
+            color: #d9b66b;
+            font-style: italic;
+        }
+
+        .hero p {
+            max-width: 580px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 35px;
+            animation: fadeUp 1s 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            animation: fadeUp 1s 0.45s both;
+        }
+
+        .btn {
+            padding: 15px 27px;
+            border-radius: 40px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #d6b36a;
+            color: #193b29;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.5);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark-green);
+        }
+
+        /* Floating leaf */
+
+        .leaf {
+            position: absolute;
+            color: rgba(255,255,255,0.12);
+            font-size: 100px;
+            animation: floating 7s ease-in-out infinite;
+        }
+
+        .leaf1 {
+            right: 8%;
+            top: 25%;
+        }
+
+        .leaf2 {
+            right: 25%;
+            bottom: 12%;
+            font-size: 60px;
+            animation-delay: 2s;
+        }
+
+        @keyframes floating {
+
+            0%,100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            padding: 110px 25px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(45px, 6vw, 70px);
+            line-height: 0.95;
+            color: var(--dark-green);
+        }
+
+        .section-heading p {
+            margin-top: 20px;
+            color: #6c776f;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: var(--cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 170px 170px 20px 20px;
+        }
+
+        .experience {
+            position: absolute;
+            right: -25px;
+            bottom: 35px;
+            background: var(--dark-green);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+        }
+
+        .experience strong {
+            display: block;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 45px;
+            color: #d7b56d;
+        }
+
+        .about-text h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #6a756d;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .feature i {
+            color: var(--gold);
+        }
+
+        /* =========================
+           TREATMENTS
+        ========================= */
+
+        .treatments {
+            background: #edf2e9;
+        }
+
+        .treatment-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .treatment-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: 0.5s;
+            box-shadow: 0 10px 30px rgba(30,60,40,0.06);
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(30,60,40,0.15);
+        }
+
+        .treatment-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .treatment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .treatment-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .treatment-content {
+            padding: 25px;
+        }
+
+        .treatment-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            margin-bottom: 18px;
+        }
+
+        .treatment-content h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 29px;
+            margin-bottom: 10px;
+        }
+
+        .treatment-content p {
+            color: #758078;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            background: var(--dark-green);
+            color: white;
+            padding: 65px 25px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            text-align: center;
+        }
+
+        .stat {
+            border-right: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .stat:last-child {
+            border: none;
+        }
+
+        .stat strong {
+            display: block;
+            font-family: "Cormorant Garamond", serif;
+            color: #d8b66d;
+            font-size: 55px;
+        }
+
+        .stat span {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* =========================
+           DOCTOR
+        ========================= */
+
+        .doctor-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .doctor-image img {
+            width: 100%;
+            height: 560px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .doctor-content h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 65px;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .doctor-role {
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+
+        .doctor-content p {
+            color: #6c776f;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           TESTIMONIALS
+        ========================= */
+
+        .testimonials {
+            background: #e8efe3;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .quote {
+            font-size: 45px;
+            color: #d5b36c;
+            font-family: Georgia;
+        }
+
+        .testimonial p {
+            color: #68746c;
+            line-height: 1.8;
+            margin: 10px 0 25px;
+        }
+
+        .stars {
+            color: #d2aa55;
+        }
+
+        .person {
+            margin-top: 15px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           APPOINTMENT
+        ========================= */
+
+        .appointment {
+            background:
+                linear-gradient(
+                    rgba(21,59,39,0.92),
+                    rgba(21,59,39,0.92)
+                ),
+                url("https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .appointment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .appointment h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 65px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .appointment p {
+            color: rgba(255,255,255,0.75);
+            line-height: 1.8;
+        }
+
+        .appointment-form {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+        }
+
+        .appointment-form h3 {
+            color: var(--dark-green);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 35px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #dde4dc;
+            border-radius: 8px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--green);
+        }
+
+        .form-submit {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            justify-content: center;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #102e20;
+            color: white;
+            padding: 70px 25px 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        footer h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            color: #d7b56d;
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .socials a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 50px;
+            padding-top: 20px;
+            text-align: center;
+            color: rgba(255,255,255,0.45);
+            font-size: 12px;
+        }
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 900px) {
+
+            nav {
+                position: absolute;
+                top: 80px;
+                left: 20px;
+                right: 20px;
+                background: var(--dark-green);
+                border-radius: 15px;
+                padding: 25px;
+                flex-direction: column;
+                display: none;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .about-grid,
+            .doctor-grid,
+            .appointment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .treatment-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .stat {
+                border-right: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width: 600px) {
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .treatment-grid,
+            .testimonial-grid,
+            .features,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image img,
+            .doctor-image img {
+                height: 420px;
+            }
+
+            .experience {
+                right: 10px;
+            }
+
+            .appointment h2,
+            .doctor-content h2 {
+                font-size: 50px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     LOADER
+========================= -->
+
+<div class="loader" id="loader">
+    <div class="loader-circle"></div>
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header id="header">
+
+    <div class="navbar">
+
+        <a href="#" class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-leaf"></i>
+            </div>
+
+            <div class="logo-text">
+                Ayura<span>Life</span>
+            </div>
+
+        </a>
+
+
+        <nav id="nav">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#treatments">Treatments</a>
+            <a href="#doctor">Doctor</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact" class="nav-btn">
+                Book Appointment
+            </a>
+
+        </nav>
+
+
+        <div class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="leaf leaf1">
+        <i class="fa-solid fa-leaf"></i>
+    </div>
+
+    <div class="leaf leaf2">
+        <i class="fa-solid fa-leaf"></i>
+    </div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            <i class="fa-solid fa-leaf"></i>
+            Traditional Healing • Modern Care
+        </div>
+
+        <h1>
+            Restore Your
+            <span>Natural Balance</span>
+        </h1>
+
+        <p>
+            Experience authentic Ayurvedic healthcare designed
+            to restore harmony between your body, mind and soul.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#contact" class="btn btn-primary">
+                Book Consultation
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="#treatments" class="btn btn-outline">
+                Explore Treatments
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-image reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=900&q=85"
+                    alt="Ayurveda treatment">
+
+                <div class="experience">
+
+                    <strong>15+</strong>
+                    Years of Healing
+
+                </div>
+
+            </div>
+
+
+            <div class="about-text reveal">
+
+                <div class="eyebrow">
+                    About Our Clinic
+                </div>
+
+                <h3>
+                    Ancient wisdom,
+                    personalized for you.
+                </h3>
+
+                <p>
+                    At AyuraLife, we believe true wellness comes from
+                    understanding the unique balance of every individual.
+                </p>
+
+                <p>
+                    Our Ayurveda treatments combine traditional healing
+                    principles with modern clinical care to support
+                    long-term wellness.
+                </p>
+
+
+                <div class="features">
+
+                    <div class="feature">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Authentic Ayurveda
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Experienced Doctors
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Natural Medicines
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Personalized Care
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TREATMENTS
+========================= -->
+
+<section class="treatments" id="treatments">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Our Treatments
+            </div>
+
+            <h2>
+                Healing through
+                natural wisdom.
+            </h2>
+
+            <p>
+                Discover traditional Ayurvedic therapies
+                designed around your individual wellness needs.
+            </p>
+
+        </div>
+
+
+        <div class="treatment-grid">
+
+
+            <div class="treatment-card reveal">
+
+                <div class="treatment-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+                        alt="Abhyanga">
+
+                </div>
+
+                <div class="treatment-content">
+
+                    <div class="treatment-icon">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+
+                    <h3>Abhyanga</h3>
+
+                    <p>
+                        Traditional Ayurvedic oil massage designed
+                        to promote relaxation and balance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="treatment-card reveal">
+
+                <div class="treatment-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=800&q=80"
+                        alt="Shirodhara">
+
+                </div>
+
+                <div class="treatment-content">
+
+                    <div class="treatment-icon">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+
+                    <h3>Shirodhara</h3>
+
+                    <p>
+                        A calming Ayurvedic therapy involving
+                        a gentle stream of warm herbal oil.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="treatment-card reveal">
+
+                <div class="treatment-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80"
+                        alt="Panchakarma">
+
+                </div>
+
+                <div class="treatment-content">
+
+                    <div class="treatment-icon">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+
+                    <h3>Panchakarma</h3>
+
+                    <p>
+                        A traditional Ayurvedic wellness program
+                        customized according to individual needs.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat reveal">
+                <strong class="counter" data-target="15">0</strong>
+                <span>Years Experience</span>
+            </div>
+
+            <div class="stat reveal">
+                <strong class="counter" data-target="5000">0</strong>
+                <span>Patients Consulted</span>
+            </div>
+
+            <div class="stat reveal">
+                <strong class="counter" data-target="25">0</strong>
+                <span>Wellness Programs</span>
+            </div>
+
+            <div class="stat reveal">
+                <strong class="counter" data-target="98">0</strong>
+                <span>Patient Satisfaction %</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DOCTOR
+========================= -->
+
+<section id="doctor">
+
+    <div class="container">
+
+        <div class="doctor-grid">
+
+            <div class="doctor-image reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=900&q=85"
+                    alt="Ayurveda doctor">
+
+            </div>
+
+
+            <div class="doctor-content reveal">
+
+                <div class="eyebrow">
+                    Meet Your Doctor
+                </div>
+
+                <h2>
+                    Dr. Ananya
+                    Menon
+                </h2>
+
+                <div class="doctor-role">
+                    BAMS • Ayurvedic Physician
+                </div>
+
+                <p>
+                    With years of experience in traditional Ayurveda,
+                    Dr. Ananya focuses on personalized wellness plans
+                    that address lifestyle, nutrition and individual
+                    constitution.
+                </p>
+
+                <p>
+                    Every consultation begins with listening,
+                    understanding and creating a treatment approach
+                    suited to the individual.
+                </p>
+
+                <a href="#contact" class="btn btn-primary">
+                    Meet the Doctor
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     REVIEWS
+========================= -->
+
+<section class="testimonials" id="reviews">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Patient Experiences
+            </div>
+
+            <h2>
+                Words from our
+                patients.
+            </h2>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+
+            <div class="testimonial reveal">
+
+                <div class="quote">“</div>
+
+                <p>
+                    The entire consultation experience was calm,
+                    professional and personalized.
+                </p>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="person">
+                    — Priya
+                </div>
+
+            </div>
+
+
+            <div class="testimonial reveal">
+
+                <div class="quote">“</div>
+
+                <p>
+                    I really appreciated the detailed explanation
+                    of the treatment and lifestyle recommendations.
+                </p>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="person">
+                    — Rahul
+                </div>
+
+            </div>
+
+
+            <div class="testimonial reveal">
+
+                <div class="quote">“</div>
+
+                <p>
+                    A peaceful clinic with a caring team and
+                    a very comfortable treatment environment.
+                </p>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="person">
+                    — Meera
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     APPOINTMENT
+========================= -->
+
+<section class="appointment" id="contact">
+
+    <div class="container">
+
+        <div class="appointment-grid">
+
+
+            <div class="reveal">
+
+                <div class="eyebrow">
+                    Begin Your Wellness Journey
+                </div>
+
+                <h2>
+                    Take the first
+                    step toward balance.
+                </h2>
+
+                <p>
+                    Book a consultation with our Ayurvedic
+                    physician and discover a personalized
+                    approach to your wellness.
+                </p>
+
+            </div>
+
+
+            <div class="appointment-form reveal">
+
+                <h3>
+                    Book an Appointment
+                </h3>
+
+                <form id="appointmentForm">
+
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            placeholder="Your Name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                            type="tel"
+                            placeholder="Phone Number"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+
+                        <select required>
+
+                            <option value="">
+                                Select Treatment
+                            </option>
+
+                            <option>
+                                General Consultation
+                            </option>
+
+                            <option>
+                                Abhyanga
+                            </option>
+
+                            <option>
+                                Shirodhara
+                            </option>
+
+                            <option>
+                                Panchakarma
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <input
+                            type="date"
+                            required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <textarea
+                            placeholder="Tell us briefly about your requirement">
+                        </textarea>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary form-submit">
+
+                        Request Appointment
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <a href="#" class="logo">
+
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+
+                    <div class="logo-text">
+                        Ayura<span>Life</span>
+                    </div>
+
+                </a>
+
+                <p style="margin-top:20px;">
+                    Traditional Ayurvedic wisdom combined
+                    with personalized modern wellness care.
+                </p>
+
+                <div class="socials">
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>Explore</h3>
+
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#treatments">Treatments</a></li>
+                    <li><a href="#doctor">Doctor</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>Treatments</h3>
+
+                <ul>
+                    <li><a href="#">Abhyanga</a></li>
+                    <li><a href="#">Shirodhara</a></li>
+                    <li><a href="#">Panchakarma</a></li>
+                    <li><a href="#">Consultation</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>Contact</h3>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Kozhikode, Kerala
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +91 98765 43210
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    hello@ayuralife.com
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 AyuraLife Ayurveda Clinic.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- Interactive floating leaves -->
+<div class="floating-leaves">
+
+    <span class="floating-leaf leaf-a">🌿</span>
+    <span class="floating-leaf leaf-b">🍃</span>
+    <span class="floating-leaf leaf-c">🌿</span>
+    <span class="floating-leaf leaf-d">🍃</span>
+
+</div>
+
+<!-- Cursor glow -->
+<div class="cursor-glow"></div>
+
+<script>
+
+    /* =========================
+       LOADER
+    ========================= */
+
+    window.addEventListener("load", function() {
+
+        setTimeout(function() {
+
+            document
+                .getElementById("loader")
+                .classList.add("hide");
+
+        }, 700);
+
+    });
+
+
+    /* =========================
+       NAVBAR SCROLL
+    ========================= */
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", function() {
+
+        if(window.scrollY > 60) {
+
+            header.classList.add("scrolled");
+
+        } else {
+
+            header.classList.remove("scrolled");
+
+        }
+
+    });
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("nav");
+
+    menuBtn.addEventListener("click", function() {
+
+        nav.classList.toggle("active");
+
+    });
+
+
+    document.querySelectorAll("nav a").forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            nav.classList.remove("active");
+
+        });
+
+    });
+
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if(entry.isIntersecting) {
+
+                    entry.target.classList.add("active");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+
+    revealElements.forEach(function(element) {
+
+        observer.observe(element);
+
+    });
+
+
+    /* =========================
+       COUNTERS
+    ========================= */
+
+    const counters =
+        document.querySelectorAll(".counter");
+
+    const counterObserver =
+        new IntersectionObserver(
+
+            function(entries, observer) {
+
+                entries.forEach(function(entry) {
+
+                    if(!entry.isIntersecting)
+                        return;
+
+                    const counter =
+                        entry.target;
+
+                    const target =
+                        Number(counter.dataset.target);
+
+                    let current = 0;
+
+                    const increment =
+                        target / 100;
+
+                    function updateCounter() {
+
+                        current += increment;
+
+                        if(current < target) {
+
+                            counter.textContent =
+                                Math.ceil(current);
+
+                            requestAnimationFrame(
+                                updateCounter
+                            );
+
+                        } else {
+
+                            counter.textContent =
+                                target;
+
+                            if(target === 98) {
+
+                                counter.textContent =
+                                    target + "%";
+
+                            } else {
+
+                                counter.textContent =
+                                    target + "+";
+
+                            }
+
+                        }
+
+                    }
+
+                    updateCounter();
+
+                    observer.unobserve(counter);
+
+                });
+
+            },
+
+            {
+                threshold: 0.5
+            }
+
+        );
+
+
+    counters.forEach(function(counter) {
+
+        counterObserver.observe(counter);
+
+    });
+
+
+    /* =========================
+       APPOINTMENT FORM
+    ========================= */
+
+    const form =
+        document.getElementById("appointmentForm");
+
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Thank you! Your appointment request has been received."
+        );
+
+        form.reset();
+
+    });
+
+</script>
+
+</body>
+</html>
